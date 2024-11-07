@@ -11,21 +11,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "APIGateway", "APIGateway", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotificationManager", "NotificationManager", "{AAC9FC7C-2FA0-42B7-9C72-E2064224D0EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManager.Domain", "UserManager.Domain\UserManager.Domain.csproj", "{18968CB0-0F52-4DD8-82E4-B8561DB0130E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManager.Domain", "UserManager.Domain\UserManager.Domain.csproj", "{18968CB0-0F52-4DD8-82E4-B8561DB0130E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManager.Application", "UserManager.Application\UserManager.Application.csproj", "{AC5DB0F3-6886-4D2D-A080-261030C09078}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManager.Application", "UserManager.Application\UserManager.Application.csproj", "{AC5DB0F3-6886-4D2D-A080-261030C09078}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManager.Infrastructure", "UserManager.Infrastructure\UserManager.Infrastructure.csproj", "{8AD443A7-412C-4444-9614-45A0B6DD1412}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManager.Infrastructure", "UserManager.Infrastructure\UserManager.Infrastructure.csproj", "{8AD443A7-412C-4444-9614-45A0B6DD1412}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManager.Presentation", "UserManager.Presentation\UserManager.Presentation.csproj", "{83FD0733-7D60-4A87-81EA-CB899E8DB10C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserManager.Presentation", "UserManager.Presentation\UserManager.Presentation.csproj", "{83FD0733-7D60-4A87-81EA-CB899E8DB10C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Infrastructure", "TaskManager.Infrastructure\TaskManager.Infrastructure.csproj", "{1AAC8B60-F0EA-4E0D-B3BB-FA2AB7601F17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.Infrastructure", "TaskManager.Infrastructure\TaskManager.Infrastructure.csproj", "{1AAC8B60-F0EA-4E0D-B3BB-FA2AB7601F17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Application", "TaskManager.Application\TaskManager.Application.csproj", "{E5CCC393-F817-469B-91F2-42C260266A71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.Application", "TaskManager.Application\TaskManager.Application.csproj", "{E5CCC393-F817-469B-91F2-42C260266A71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Domain", "TaskManager.Domain\TaskManager.Domain.csproj", "{1EFF93BC-990F-46CC-A4B6-6DAD8337E060}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.Domain", "TaskManager.Domain\TaskManager.Domain.csproj", "{1EFF93BC-990F-46CC-A4B6-6DAD8337E060}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskManager.Presentation", "TaskManager.Presentation\TaskManager.Presentation.csproj", "{CEB0DADC-4F18-4528-AB96-7D525060A2C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskManager.Presentation", "TaskManager.Presentation\TaskManager.Presentation.csproj", "{CEB0DADC-4F18-4528-AB96-7D525060A2C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthManager", "AuthManager", "{D6932757-06A5-48AD-8D69-E9B8BFD8017D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthManager", "AuthManager\AuthManager.csproj", "{B8E4A923-592B-4DC2-92EA-9E1CE9ED7FFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +69,10 @@ Global
 		{CEB0DADC-4F18-4528-AB96-7D525060A2C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEB0DADC-4F18-4528-AB96-7D525060A2C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEB0DADC-4F18-4528-AB96-7D525060A2C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E4A923-592B-4DC2-92EA-9E1CE9ED7FFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E4A923-592B-4DC2-92EA-9E1CE9ED7FFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E4A923-592B-4DC2-92EA-9E1CE9ED7FFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E4A923-592B-4DC2-92EA-9E1CE9ED7FFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +86,7 @@ Global
 		{E5CCC393-F817-469B-91F2-42C260266A71} = {A5DD49B5-2C93-4093-8F4D-E880DACCB418}
 		{1EFF93BC-990F-46CC-A4B6-6DAD8337E060} = {A5DD49B5-2C93-4093-8F4D-E880DACCB418}
 		{CEB0DADC-4F18-4528-AB96-7D525060A2C3} = {A5DD49B5-2C93-4093-8F4D-E880DACCB418}
+		{B8E4A923-592B-4DC2-92EA-9E1CE9ED7FFA} = {D6932757-06A5-48AD-8D69-E9B8BFD8017D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {595A87DF-8D20-4569-8881-709FB27B5ED1}

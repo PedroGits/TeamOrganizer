@@ -23,5 +23,10 @@ namespace UserManager.Application.Services
             return await _userRepository.AddAsync(user.ToNewEntity());
 
         }
+
+        public Task<string?> ValidateUser(UserLoginDTO user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

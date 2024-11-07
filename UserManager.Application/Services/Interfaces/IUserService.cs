@@ -10,5 +10,6 @@ namespace UserManager.Application.Services.Interfaces
     public interface IUserService
     {
         public Task<Guid> CreateUser(UserDTO user);
+        public Task<string?> ValidateUser(UserLoginDTO user);
     }
 }
