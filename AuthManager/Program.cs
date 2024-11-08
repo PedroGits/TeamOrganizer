@@ -2,6 +2,10 @@ using AuthManager.DTOs;
 using AuthManager.Services.Interfaces;
 using AuthManager.Services;
 using AuthManager.Configurations;
+using AuthManager.Validators;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using FluentValidation.Results;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication();
@@ -9,23 +13,26 @@ builder.Services.AddAuthorization();
 builder.Services.AddHttpClient();
 builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSettings"));
 builder.Services.AddScoped<IJWTService, JWTService>();
-
+builder.Services.AddScoped<IValidateUser, ValidateUser>();
+builder.Services.AddValidatorsFromAssemblyContaining<LoginRequestValidator>();
+builder.Services.AddFluentValidationAutoValidation();
 var app = builder.Build();
 
-app.MapPost("/login", async (LoginRequest request, IHttpClientFactory clientFactory, IJWTService tokenService) =>
+app.MapPost("/login", async (LoginRequest request, IValidator <LoginRequest> validator, IHttpClientFactory clientFactory, IJWTService tokenService, IValidateUser validateUser) =>
 {
-    var client = clientFactory.CreateClient();
-    var userResponse = await client.GetAsync($"UserManagerApi/users/validate?username={request.Email}&password={request.Password}");
-
-    if (!userResponse.IsSuccessStatusCode)
+    ValidationResult validationResult = await validator.ValidateAsync(request);
+    
+    if (!validationResult.IsValid)
     {
-        return Results.Unauthorized();
+        return Results.BadRequest(validationResult.Errors);
     }
+    
+    var userResponse = await validateUser.ValidateUserLogin(request.Email, request.Password);
 
-    var userResponseContent = await userResponse.Content.ReadAsStringAsync();
-    var role = userResponseContent;
+    if (!userResponse.IsValid || string.IsNullOrEmpty(userResponse.Role))
+        return Results.Unauthorized();
 
-    var token = tokenService.GenerateToken(request.Email, role);
+    var token = tokenService.GenerateToken(request.Email, userResponse.Role);
     return Results.Ok(new { Token = token });
 });
 

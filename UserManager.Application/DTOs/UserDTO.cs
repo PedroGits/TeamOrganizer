@@ -8,6 +8,7 @@ namespace UserManager.Application.DTOs
         public Guid Id { get; private set; }
         public string? FullName { get; private set; }
         public string? Email { get; private set; }
+        public string? Password { get; private set; }
         public UserRole Role { get; private set; }
         public bool IsActive { get; private set; }
 
@@ -25,7 +26,7 @@ namespace UserManager.Application.DTOs
 
         public User ToNewEntity()
         {
-            return new User(Id, FullName, Email, Role);
+            return new User(Id, FullName, Email, Password, Role);
         }
     }
 }
