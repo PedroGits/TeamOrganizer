@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharedKernel.Result;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,7 @@ namespace UserManager.Application.Services.Interfaces
 {
     public interface IUserService
     {
-        public Task<Guid> CreateUser(UserDTO user);
-        public Task<string?> ValidateUser(UserLoginDTO user);
+        public Task<ResultT<Guid>> CreateUser(UserDTO user);
+        public Task<ResultT<string?>> ValidateUser(UserLoginDTO user);
     }
 }

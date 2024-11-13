@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharedKernel.Result;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -18,13 +19,13 @@ namespace UserManager.Application.Services
         {
             _userRepository = userRepository; 
         }
-        public async Task<Guid> CreateUser(UserDTO user)
+        public async Task<ResultT<Guid>> CreateUser(UserDTO user)
         {
             return await _userRepository.AddAsync(user.ToNewEntity());
 
         }
 
-        public Task<string?> ValidateUser(UserLoginDTO user)
+        public Task<ResultT<string?>> ValidateUser(UserLoginDTO user)
         {
             throw new NotImplementedException();
         }

@@ -15,7 +15,6 @@ builder.Services.Configure<JwtSettings>(builder.Configuration.GetSection("JwtSet
 builder.Services.AddScoped<IJWTService, JWTService>();
 builder.Services.AddScoped<IValidateUser, ValidateUser>();
 builder.Services.AddValidatorsFromAssemblyContaining<LoginRequestValidator>();
-builder.Services.AddFluentValidationAutoValidation();
 var app = builder.Build();
 
 app.MapPost("/login", async (LoginRequest request, IValidator <LoginRequest> validator, IHttpClientFactory clientFactory, IJWTService tokenService, IValidateUser validateUser) =>

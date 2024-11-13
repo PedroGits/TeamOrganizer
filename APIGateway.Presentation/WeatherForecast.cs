@@ -1,4 +1,4 @@
-namespace UserManager.Presentation
+namespace APIGateway.Presentation
 {
     public class WeatherForecast
     {

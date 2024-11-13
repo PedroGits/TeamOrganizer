@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SharedKernel.Result;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ using UserManager.Domain.Enums;
 
 namespace UserManager.Application.Features.User.Commands
 {
-    public record CreateUserCommand : IRequest<Guid>
+    public record CreateUserCommand : IRequest<Result<Guid>>
     {
         public UserDTO User { get; set; }
 

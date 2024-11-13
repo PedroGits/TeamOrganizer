@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SharedKernel.Result;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using UserManager.Application.Services.Interfaces;
 
 namespace UserManager.Application.Features.User.Commands.Handlers
 {
-    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Guid>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Result<Guid>>
     {
         public IUserService _userService { get; set; }
         public CreateUserCommandHandler(IUserService userService)
@@ -16,7 +17,7 @@ namespace UserManager.Application.Features.User.Commands.Handlers
                 _userService = userService;
         }
 
-        public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<Result<Guid>>Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             return await _userService.CreateUser(request.User);
         }

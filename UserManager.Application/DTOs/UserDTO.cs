@@ -1,4 +1,5 @@
-﻿using UserManager.Domain.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+using UserManager.Domain.Entities;
 using UserManager.Domain.Enums;
 
 namespace UserManager.Application.DTOs

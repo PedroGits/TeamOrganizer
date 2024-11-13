@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SharedKernel.Result;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using UserManager.Application.Services.Interfaces;
 
 namespace UserManager.Application.Features.User.Queries.Handlers
 {
-    public class ValidateUserQueryHandler : IRequestHandler<ValidateUserQuery, string?>
+    public class ValidateUserQueryHandler : IRequestHandler<ValidateUserQuery, Result<string?>>
     {
         IUserService _userService;
 
@@ -17,9 +18,14 @@ namespace UserManager.Application.Features.User.Queries.Handlers
             _userService = userService;    
         }
 
-        public async Task<string?> Handle(ValidateUserQuery request, CancellationToken cancellationToken)
+        public async Task<Result<string?>> Handle(ValidateUserQuery request, CancellationToken cancellationToken)
         {
-            return await _userService.ValidateUser(request.LoginDTO);
+            var isUserValid = await _userService.ValidateUser(request.LoginDTO);
+
+            if (!isUserValid)
+                return Result<string?>.Failure(Error.AccessUnAuthorized("LoginFailed", "Combination User/Password not found"));
+
+            return Result<string?>.Success(isUserValid);
                 
         }
     }

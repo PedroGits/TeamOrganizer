@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SharedKernel.Result;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using UserManager.Application.DTOs;
 
 namespace UserManager.Application.Features.User.Queries
 {
-    public class ValidateUserQuery:IRequest<string?>
+    public class ValidateUserQuery:IRequest<Result<string?>>
     {
         public UserLoginDTO LoginDTO { get; set; }
 
